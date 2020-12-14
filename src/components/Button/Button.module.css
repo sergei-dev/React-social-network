@@ -1,0 +1,20 @@
+.button {
+    display: inline-block;
+    padding: 20px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    color: #ffffff;
+    background: rgb(237, 152, 39);
+    border: 0;
+    transition: all .4s ease-in-out;
+}
+
+.button:focus,
+.button:hover {
+    outline: none;
+    background: rgb(198, 123, 25);
+}

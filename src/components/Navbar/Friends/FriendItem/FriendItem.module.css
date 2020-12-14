@@ -1,0 +1,21 @@
+.friendItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.friendItem:last-child {
+    margin-bottom: 0;
+}
+
+.avatarWrap {
+    margin-right: 20px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    -o-object-fit: cover;
+}

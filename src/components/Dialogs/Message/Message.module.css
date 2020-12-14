@@ -1,0 +1,13 @@
+.message {
+    margin-bottom: 20px;
+}
+
+.message:last-child {
+    margin-bottom: 0;
+}
+
+.content {
+    border-radius: 15px;
+    padding: 10px;
+    background: rgb(235, 231, 231);
+}

@@ -1,0 +1,71 @@
+.userItem {
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.userItem:last-child {
+    margin-bottom: 0;
+}
+
+.userContent {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.userLeft {
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    max-width: 100px;
+    width: 100%;
+}
+
+.userAvatarWrap {
+    margin-bottom: 20px;
+}
+
+.userAvatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.userRight {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    border: 1px solid silver;
+    min-height: 120px;
+    width: 100%;
+}
+
+.userInfo {
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.fullName {
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.userStatus {
+    margin-top: auto;
+}
+
+.userCounty {
+    margin-bottom: 10px;
+    display: block;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.userCity {
+    font-weight: 700;
+    font-size: 20px;
+}

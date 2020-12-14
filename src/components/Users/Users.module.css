@@ -1,0 +1,35 @@
+.title {
+    margin-bottom: 30px;
+}
+
+.pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 0;
+}
+
+.paginationList {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.paginationItem {
+    display: block;
+    margin-right: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: font-size 0.4s ease-in-out;
+}
+
+.paginationItem:last-child {
+    margin-right: 0;
+}
+
+.paginationItemActive {
+    font-size: 24px;
+    color: rgb(237, 152, 39);
+}

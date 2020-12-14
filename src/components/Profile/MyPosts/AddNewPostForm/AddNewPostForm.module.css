@@ -1,0 +1,21 @@
+.textareaWrap {
+    max-width: 600px;
+}
+
+.textarea {
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    resize: none;
+    padding: 10px;
+    font-size: 16px;
+    background: 0 0;
+    border: 1px solid #cccccc;
+    background: #ffffff;
+    transition: all .3s ease-in-out;
+}
+
+.textarea:focus {
+    border-color: #000000;
+    outline: none;
+}
