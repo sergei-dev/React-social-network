@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { requiredField, maxLengthCreator } from '../../../utils/validators/validators';
 import { Input } from '../../FormsControls/FormControl';
 import styles from './LoginForm.module.css';
+import stylesForm from '../../FormsControls/FormControl.module.css';
 
 const LoginForm = (props) => {
     const maxLength10 = maxLengthCreator(10);
@@ -20,6 +21,7 @@ const LoginForm = (props) => {
             <label className={styles.item}>
                 <Field type={'checkbox'} name={'rememberMe'} component={'input'}/> remember me
             </label>
+            { props.error && <div className={stylesForm.formSummaryError}>{props.error}</div> }
             <button>Send</button>
         </form>
     )

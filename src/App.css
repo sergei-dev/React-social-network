@@ -42,6 +42,7 @@ ul {
 
 .app-wrapper-content {
   grid-area: main;
+  padding: 20px;
 }
 
 .button {

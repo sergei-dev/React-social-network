@@ -5,6 +5,7 @@ import {
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
 const SET_STATUS = 'SET-STATUS';
+const DELETE_POST = 'DELETE_POST';
 
 let initialState = {
     postsData: [{
@@ -63,6 +64,13 @@ const profileReducer = (state = initialState, action) => {
             };
         }
 
+        case DELETE_POST: {
+            return {
+                ...state,
+                postsData: [...state.postsData.filter(post => post != action.postId)]
+            }
+        }
+
         case SET_USER_PROFILE: {
             return {
                 ...state,
@@ -88,6 +96,11 @@ export const addPostActionCreator = (postMessage) => ({
     postMessage: postMessage
 });
 
+export const deletePostActionCreator = (postId) => ({
+    type: DELETE_POST,
+    postId: postId
+})
+
 export const setUserProfile = (profile) => ({
     type: SET_USER_PROFILE,
     profile: profile
@@ -99,28 +112,25 @@ export const setStatus = (status) => ({
 })
 
 export const setProfile = (userId) => {
-    return (dispatch) => {
-        profileApi.getProfile(userId).then((data) => {
-            dispatch(setUserProfile(data));
-        });
+    return async (dispatch) => {
+        const response = await profileApi.getProfile(userId);
+        dispatch(setUserProfile(response));
     }
 }
 
 export const getStatus = (userId) => {
-    return (dispatch) => {
-        profileApi.getProfileStatus(userId).then(data => {
-            dispatch(setStatus(data));
-        });
+    return async (dispatch) => {
+        const response = await profileApi.getProfileStatus(userId);
+        dispatch(setStatus(response));
     }
 }
 
 export const updateStatus = (status) => {
-    return (dispatch) => {
-        profileApi.updateStatus(status).then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(setStatus(status));
-            }
-        });
+    return async (dispatch) => {
+        const response = await profileApi.updateStatus(status);
+        if (response.data.resultCode === 0) {
+            dispatch(setStatus(status));
+        }
     }
 }
 

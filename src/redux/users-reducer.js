@@ -129,38 +129,42 @@ export const toggleIsFollowingProgress = (isFetching, userId) => ({
     userId: userId
 })
 
-export const getUsers = (currentPage, pageSize) => {
-    return (dispatch) => {
+export const requestUsers = (page, pageSize) => {
+    return async (dispatch) => {
         dispatch(toggleIsFetching(true));
-        usersApi.getUsers(currentPage, pageSize).then((data) => {
-            dispatch(toggleIsFetching(false));
-            dispatch(setUsers(data.items));
-            dispatch(setUsersTotalCount(data.totalCount));
-        });
+        dispatch(setCurrentPage(page));
+
+        const data = await usersApi.getUsers(page, pageSize);
+
+        dispatch(toggleIsFetching(false));
+        dispatch(setUsers(data.items));
+        dispatch(setUsersTotalCount(data.totalCount));
     }
 }
 
 export const follow = (userId) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleIsFollowingProgress(true, userId));
-        usersApi.followSucces(userId).then((data) => {
-            if (data.resultCode === 0) {
-                dispatch(followSucces(userId));
-            }
-            dispatch(toggleIsFollowingProgress(false, userId));
-        });
+
+        const data = await usersApi.followSucces(userId);
+
+        if (data.resultCode === 0) {
+            dispatch(followSucces(userId));
+        }
+        dispatch(toggleIsFollowingProgress(false, userId));
     }
 }
 
 export const unFollow = (userId) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleIsFollowingProgress(true, userId));
-        usersApi.unFollowSucces(userId).then((data) => {
-            if (data.resultCode === 0) {
-                dispatch(unFollowSucces(userId));
-            }
-            dispatch(toggleIsFollowingProgress(false, userId));
-        });
+
+        const data = await usersApi.unFollowSucces(userId);
+
+        if (data.resultCode === 0) {
+            dispatch(unFollowSucces(userId));
+        }
+        dispatch(toggleIsFollowingProgress(false, userId));
     }
 }
 
